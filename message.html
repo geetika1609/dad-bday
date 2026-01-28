@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Message For You ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: Georgia, serif;
+  background: radial-gradient(circle at top, #203a43, #0f2027);
+  color: #ffd700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ===== FLOATING POPS ===== */
+.pop {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffd700;
+  opacity: 0.6;
+  animation: float 10s infinite linear;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); }
+  to   { transform: translateY(-10vh); }
+}
+
+/* HEART */
+#heart {
+  font-size: 11em;
+  cursor: pointer;
+  animation: heartbeat 1.3s infinite;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.25); }
+  60% { transform: scale(1); }
+}
+
+/* PHOTO */
+#photo {
+  display: none;
+  width: 420px;
+  height: 420px;
+  border-radius: 30px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow:
+    0 0 25px rgba(255,215,0,0.4),
+    0 20px 60px rgba(0,0,0,0.8);
+}
+
+#photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* MESSAGE */
+#message {
+  display: none;
+  max-width: 800px;
+  text-align: center;
+  font-size: 1.6em;
+  line-height: 1.9;
+  animation: fadeIn 1.2s ease forwards, glow 3s infinite alternate;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px #ffd700; }
+  to   { text-shadow: 0 0 18px #ffd700; }
+}
+
+/* BACK */
+a {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  color: #ffd700;
+  text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND POPS -->
+<div class="pop" style="left:10%"></div>
+<div class="pop" style="left:30%; animation-delay:2s"></div>
+<div class="pop" style="left:50%; animation-delay:4s"></div>
+<div class="pop" style="left:70%; animation-delay:6s"></div>
+<div class="pop" style="left:90%; animation-delay:1s"></div>
+
+<!-- HEART -->
+<div id="heart" onclick="showPhoto()">❤️</div>
+
+<!-- PHOTO -->
+<div id="photo" onclick="showMessage()">
+  <img src="Single8.jpeg">
+</div>
+
+<!-- MESSAGE -->
+<div id="message">
+  Daddy,<br><br>
+  You have always been my quiet strength and my loudest support.
+  Every sacrifice you made, every lesson you taught, and every time
+  you stood by me shaped who I am today.<br><br>
+  I am endlessly grateful, endlessly proud, and endlessly blessed
+  to be your daughter.<br><br>
+  Happy Birthday ❤️
+</div>
+
+<a href="index.html">⬅ Back</a>
+
+<script>
+function showPhoto() {
+  document.getElementById("heart").style.display = "none";
+  document.getElementById("photo").style.display = "block";
+}
+
+function showMessage() {
+  document.getElementById("photo").style.display = "none";
+  document.getElementById("message").style.display = "block";
+}
+</script>
+
+</body>
+</html>
