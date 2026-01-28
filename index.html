@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Daddy ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: radial-gradient(circle at top, #355c7d, #203a43, #0f2027);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ================= FLOATING POPS ================= */
+.pop {
+  position: fixed;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  background: #ffd700;
+  opacity: 0.6;
+  animation: float 12s infinite linear;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); }
+  to   { transform: translateY(-10vh); }
+}
+
+/* ================= HERO ================= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8%;
+}
+
+.hero-text h1 {
+  font-size: 4em;
+  color: #ffd700;
+  margin: 0;
+}
+
+.hero-text h2 {
+  font-size: 3.2em;
+  margin-top: 8px;
+}
+
+/* HEART */
+.heart {
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+/* QUOTE */
+.quote {
+  margin-top: 15px;
+  font-size: 1.3em;
+  font-style: italic;
+  color: #ffd700;
+}
+
+/* IMAGE */
+.hero-image {
+  width: 420px;
+  height: 420px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================= TIMER ================= */
+.timer-box {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.timer-title {
+  font-size: 1.5em;
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+#timer {
+  font-size: 2.2em;
+  letter-spacing: 4px;
+}
+
+/* ================= BUTTONS ================= */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  margin: 50px 0;
+}
+
+.buttons a {
+  padding: 16px 45px;
+  border-radius: 40px;
+  font-size: 1.2em;
+  background: linear-gradient(135deg, #ffd700, #ffea70);
+  color: #0f2027;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  transition: transform 0.3s;
+}
+
+.buttons a:hover {
+  transform: translateY(-6px);
+}
+</style>
+</head>
+
+<body>
+
+<!-- POPS -->
+<div class="pop" style="left:10%"></div>
+<div class="pop" style="left:30%; animation-delay:2s"></div>
+<div class="pop" style="left:50%; animation-delay:4s"></div>
+<div class="pop" style="left:70%; animation-delay:6s"></div>
+<div class="pop" style="left:90%; animation-delay:1s"></div>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Happy Birthday</h1>
+    <h2>Daddy <span class="heart">❤️</span></h2>
+    <div class="quote">Our Hero💞 Our Strength 💪🏻</div>
+
+    <!-- TIMER -->
+    <div class="timer-box">
+      <div class="timer-title">Opening In</div>
+      <div id="timer">00 : 00 : 00</div>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <img src="Single2.jpeg" alt="Dad Photo">
+  </div>
+</section>
+
+<div class="buttons">
+  <a href="photos.html">📸 Photos</a>
+  <a href="message.html">💌 Message</a>
+</div>
+
+<script>
+/* ===== SET YOUR BIRTHDAY DATE HERE ===== */
+const targetDate = new Date("2026-02-01T00:00:00").getTime();
+
+const timer = document.getElementById("timer");
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = targetDate - now;
+
+  if (diff <= 0) {
+    timer.innerHTML = "🎉 IT'S TIME 🎉";
+    return;
+  }
+
+  const hrs = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const mins = Math.floor((diff / (1000 * 60)) % 60);
+  const secs = Math.floor((diff / 1000) % 60);
+
+  timer.innerHTML =
+    String(hrs).padStart(2, '0') + " : " +
+    String(mins).padStart(2, '0') + " : " +
+    String(secs).padStart(2, '0');
+}, 1000);
+</script>
+
+</body>
+</html>
